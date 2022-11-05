@@ -1,9 +1,10 @@
 import { Button } from '@mui/material';
 import React from 'react';
-import './Book.css'
+import './Book.css';
+import { Link } from 'react-router-dom';
 
 const Book = (props) => {
-    const { name, author, price, description, image } = props.book;
+    const { _id, name, author, price, description, image } = props.book;
     return (
         <div className='card'>
             <img src={image} alt={name} />
@@ -11,7 +12,7 @@ const Book = (props) => {
             <h3>{name}</h3>
             <p>{description}</p>
             <h3>Rs {price}</h3>
-            <Button sx={{ mt: 'auto' }}>Update</Button>
+            <Button LinkComponent={Link} to={`/books/${_id}`} sx={{ mt: 'auto' }}>Update</Button>
             <Button sx={{ mt: 'auto' }}>Delete</Button>
         </div>
     )
